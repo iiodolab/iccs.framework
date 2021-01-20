@@ -1,6 +1,8 @@
 ﻿using Autofac;
+using System;
 using System.Data;
 using System.Data.SQLite;
+using System.IO;
 
 /******************************************************************************
  * Class DBConnectionModule
@@ -21,9 +23,16 @@ namespace Iodo.Iccs.Framework.Modules
             try
             {
                 builder.Register(ctx =>
-                {   
-                    string conns = @$"{PathDatabase}";
-                    var dataSource = @$"Data Source={conns}; Version={Version};";
+                {
+                    var dataSource = ((Func<string, string, int, string>)(
+                    (pathDatabase, nameDatabase, version) =>
+                    {
+                        if (!Directory.CreateDirectory(pathDatabase).Exists)
+                            throw new DirectoryNotFoundException();
+                        return @$"Data Source={Path.Combine(pathDatabase, nameDatabase)}; Version={version};";
+
+                    }))(Path.Combine(Environment.CurrentDirectory, PathDatabase), NameDatabase, Version);
+
                     return new SQLiteConnection(dataSource);
                 })
                 .As<SQLiteConnection>()
@@ -39,6 +48,7 @@ namespace Iodo.Iccs.Framework.Modules
 
         #region - Properties -
         public string PathDatabase { get; set; }
+        public string NameDatabase { get; set; }
         public int Version { get; set; }
         #endregion
 

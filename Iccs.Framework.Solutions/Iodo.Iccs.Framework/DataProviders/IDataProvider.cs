@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using Iodo.Iccs.Framework.Services;
+using System.Threading;
 using System.Threading.Tasks;
 
 /******************************************************************************
@@ -14,6 +15,5 @@ namespace Iodo.Iccs.Framework.DataProviders
 {
     public interface IDataProvider
     {
-        Task ExecuteAsync(CancellationToken token = default);
     }
 }
