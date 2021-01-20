@@ -138,6 +138,8 @@
     <Compile Include="Models\EventArgsModel.cs" />
     <Compile Include="Models\EventMessageModel.cs" />
     <Compile Include="Models\EventModel.cs" />
+    <Compile Include="Models\EventTypeModel.cs" />
+    <Compile Include="Models\FaultTypeModel.cs" />
     <Compile Include="Models\IEventMessageModel.cs" />
     <Compile Include="Models\IEventModel.cs" />
     <Compile Include="Models\ISymbolModel.cs" />
