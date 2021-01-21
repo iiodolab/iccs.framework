@@ -35,6 +35,7 @@ namespace Iodo.Iccs.Framework.Services
         {
         }
         #endregion
+
         #region - Procedures -
         protected virtual void RegisterSubscribers()
         {  
