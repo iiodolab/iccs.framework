@@ -41,9 +41,6 @@ namespace Iodo.Iccs.Framework.Services
         {  
             Subscriber.Subscribe(NameChannel).OnMessage((message) =>
                     Channel1EventHandler?.Invoke(this, message));
-
-            Subscriber.Subscribe(NameChannel).OnMessage((message) =>
-                    Channel1EventHandler?.Invoke(this, message));
         }
         #endregion
 
