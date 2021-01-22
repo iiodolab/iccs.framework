@@ -13,8 +13,7 @@ using System.Threading.Tasks;
 
 namespace Iodo.Iccs.Framework.ViewModels
 {
-    public interface IEventViewModel
-        
+    public interface IEventViewModel        
     {
         #region - Interfaces -
         Task Execute(CancellationToken tokenSourceEvent);
