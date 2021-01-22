@@ -7,7 +7,7 @@
  *                                                           
  *****************************************************************************/
 
-namespace Iodo.Iccs.SkInno.Models
+namespace Iodo.Iccs.Framework.Models
 {
     public enum EventType : int
     {
