@@ -3,7 +3,7 @@ using Iodo.Iccs.Framework.ViewModels;
 using System;
 
 /******************************************************************************
- * Static Class SymbolViewModelFactory
+ * Static Class EntityViewModelFactory
  * 
  *                                                   author: Jinwoo Choi, PhD.
  *                                                 organization: Kookmin Univ.
@@ -13,10 +13,10 @@ using System;
 
 namespace Iodo.Iccs.Framework.DataProviders
 {
-    public static class SymbolViewModelFactory
+    public static class EntityViewModelFactory
     {
         #region - Static Procedures -
-        public static T Build<T>(ISymbolModel model) where T : SymbolViewModel, new()
+        public static T Build<T>(IEntityModel model) where T : EntityViewModel, new()
         {
             var viewModel = (T)Activator.CreateInstance(typeof(T), new object[] { model });
             return viewModel;

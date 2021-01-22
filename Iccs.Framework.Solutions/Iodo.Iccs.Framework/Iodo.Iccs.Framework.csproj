@@ -136,7 +136,7 @@
     <Compile Include="DataProviders\CollectionProvider.cs" />
     <Compile Include="DataProviders\ICollector.cs" />
     <Compile Include="DataProviders\IDataProvider.cs" />
-    <Compile Include="DataProviders\SymbolViewModelFactory.cs" />
+    <Compile Include="DataProviders\EntityViewModelFactory.cs" />
     <Compile Include="Models\DeviceTypeModel.cs" />
     <Compile Include="Models\EventArgsModel.cs" />
     <Compile Include="Models\EventMessageModel.cs" />
@@ -145,7 +145,7 @@
     <Compile Include="Models\FaultTypeModel.cs" />
     <Compile Include="Models\IEventMessageModel.cs" />
     <Compile Include="Models\IEventModel.cs" />
-    <Compile Include="Models\ISymbolModel.cs" />
+    <Compile Include="Models\IEntityModel.cs" />
     <Compile Include="Models\SelectableItemModel.cs" />
     <Compile Include="Modules\DBConnectionModule.cs" />
     <Compile Include="Modules\RedisModule.cs" />
@@ -166,10 +166,10 @@
     <Compile Include="ViewModels\EventViewModel.cs" />
     <Compile Include="ViewModels\IDialogViewModel.cs" />
     <Compile Include="ViewModels\IEventViewModel.cs" />
-    <Compile Include="ViewModels\ISymbolViewModel.cs" />
+    <Compile Include="ViewModels\IEntityViewModel.cs" />
     <Compile Include="ViewModels\NotifierPropertyChanged.cs" />
     <Compile Include="ViewModels\SelectableItemViewModel.cs" />
-    <Compile Include="ViewModels\SymbolViewModel.cs" />
+    <Compile Include="ViewModels\EntityViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

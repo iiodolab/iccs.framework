@@ -3,7 +3,7 @@ using Iodo.Iccs.Framework.Models;
 using System;
 
 /******************************************************************************
- * Abstract Class SymbolViewModel
+ * Abstract Class EntityViewModel
  * 
  *                                                   author: Jinwoo Choi, PhD.
  *                                                 organization: Kookmin Univ.
@@ -13,16 +13,16 @@ using System;
 
 namespace Iodo.Iccs.Framework.ViewModels
 {
-    public abstract class SymbolViewModel : Screen, ISymbolViewModel, IDisposable
+    public abstract class EntityViewModel : Screen, IEntityViewModel, IDisposable
     {
         #region - Ctors -
-        public SymbolViewModel()
+        public EntityViewModel()
         {
         }
 
-        public SymbolViewModel(ISymbolModel symbolModel)
+        public EntityViewModel(IEntityModel entityModel)
         {
-            SymbolModel = symbolModel;
+            EntityModel = entityModel;
         }
         #endregion
 
@@ -48,7 +48,7 @@ namespace Iodo.Iccs.Framework.ViewModels
         #endregion
 
         #region - Attributes -
-        protected ISymbolModel SymbolModel;
+        protected IEntityModel EntityModel;
         #endregion
     }
 }

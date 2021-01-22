@@ -1,5 +1,5 @@
 ﻿/******************************************************************************
- * Interface ISymbolModel
+ * Interface IEntityModel
  * 
  *                                                   author: Jinwoo Choi, PhD.
  *                                                 organization: Kookmin Univ.
@@ -9,7 +9,7 @@
 
 namespace Iodo.Iccs.Framework.Models
 {
-    public interface ISymbolModel
+    public interface IEntityModel
     {
         #region - Properties -
         int Id { get; set; }
