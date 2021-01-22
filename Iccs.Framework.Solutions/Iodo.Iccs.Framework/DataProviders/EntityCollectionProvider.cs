@@ -5,7 +5,7 @@ using System.Diagnostics;
 using System.Windows.Data;
 
 /******************************************************************************
- * Class EntityProvider
+ * Class EntityCollectionProvider
  * 
  *                                                   author: Jinwoo Choi, PhD.
  *                                                 organization: Kookmin Univ.
@@ -16,7 +16,7 @@ using System.Windows.Data;
 namespace Iodo.Iccs.Framework.DataProviders
 {
     [DebuggerDisplay("Count = {CollectionData.Count}")]
-    public class CollectionProvider<T> : ICollector<T>
+    public class EntityCollectionProvider<T> : ICollector<T>
     {
         #region - Ctors -
         public CollectionProvider(IEnumerable<T> collection)
