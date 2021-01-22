@@ -21,11 +21,13 @@ namespace Iodo.Iccs.Framework.Services
         }
         #endregion
 
+        #region - Abstrahcts -
         protected abstract void ProcessChannel1Message(object sender, ChannelMessage message);
         protected abstract void ProcessChannel2Message(object sender, ChannelMessage message);
         protected abstract void BuildLookup();
+        #endregion
 
-        #region - Implements overrides -
+        #region - Implementations for the TaskService's overrides -
         protected override Task RunTask(CancellationToken token = default)
         {            
             return Task.Run(delegate { RegisterEventHandelers(); });
