@@ -5,7 +5,7 @@ using System.Diagnostics;
 using System.Windows.Data;
 
 /******************************************************************************
- * Class CollectionProvider
+ * Class EntityProvider
  * 
  *                                                   author: Jinwoo Choi, PhD.
  *                                                 organization: Kookmin Univ.

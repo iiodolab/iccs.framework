@@ -133,7 +133,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="DataProviders\CollectionProvider.cs" />
+    <Compile Include="DataProviders\EntityProvider.cs" />
     <Compile Include="DataProviders\ICollector.cs" />
     <Compile Include="DataProviders\IDataProvider.cs" />
     <Compile Include="DataProviders\EntityViewModelFactory.cs" />
