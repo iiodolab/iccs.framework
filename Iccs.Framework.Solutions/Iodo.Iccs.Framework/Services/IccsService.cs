@@ -3,7 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 
 /******************************************************************************
- * Abstract Class CoreService
+ * Abstract Class IccsService
  * 
  *                                                   author: Jinwoo Choi, PhD.
  *                                                 organization: Kookmin Univ.
@@ -12,10 +12,10 @@ using System.Threading.Tasks;
  *****************************************************************************/
 namespace Iodo.Iccs.Framework.Services
 {
-    public abstract class CoreService : TaskService
+    public abstract class IccsService : TaskService
     {
         #region - Ctors -
-        public CoreService(MessageService messageService)
+        public IccsService(MessageService messageService)
         {
             MessageService = messageService;
         }
@@ -23,10 +23,11 @@ namespace Iodo.Iccs.Framework.Services
 
         protected abstract void ProcessChannel1Message(object sender, ChannelMessage message);
         protected abstract void ProcessChannel2Message(object sender, ChannelMessage message);
+        protected abstract void BuildLookup();
 
         #region - Implements overrides -
         protected override Task RunTask(CancellationToken token = default)
-        {
+        {            
             return Task.Run(delegate { RegisterEventHandelers(); });
         }
 
@@ -40,6 +41,8 @@ namespace Iodo.Iccs.Framework.Services
         #region - Procedures -
         private void RegisterEventHandelers()
         {
+            BuildLookup();
+
             MessageService.Channel1EventHandler += ProcessChannel1Message;
             MessageService.Channel2EventHandler += ProcessChannel2Message;
         }
