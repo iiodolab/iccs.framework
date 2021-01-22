@@ -26,7 +26,9 @@ namespace Iodo.Iccs.Framework.ViewModels
         }
         #endregion
 
+        #region - Abstracts -
         public abstract void Dispose();
+        #endregion 
 
         #region - Properties -
         public abstract int Id { get; set; }
