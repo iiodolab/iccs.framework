@@ -19,18 +19,18 @@ namespace Iodo.Iccs.Framework.DataProviders
     public class EntityCollectionProvider<T> : ICollector<T>
     {
         #region - Ctors -
-        public CollectionProvider(IEnumerable<T> collection)
+        public EntityCollectionProvider(IEnumerable<T> collection)
         {
-            CollectionData = new ObservableCollection<T>(collection);
+            CollectionEntity = new ObservableCollection<T>(collection);
             locker = new object();
-            BindingOperations.EnableCollectionSynchronization(CollectionData, locker);
+            BindingOperations.EnableCollectionSynchronization(CollectionEntity, locker);
         }
 
-        public CollectionProvider()
+        public EntityCollectionProvider()
         {
-            CollectionData = new ObservableCollection<T>();
+            CollectionEntity = new ObservableCollection<T>();
             locker = new object();
-            BindingOperations.EnableCollectionSynchronization(CollectionData, locker);
+            BindingOperations.EnableCollectionSynchronization(CollectionEntity, locker);
         }
         #endregion
 
@@ -38,39 +38,39 @@ namespace Iodo.Iccs.Framework.DataProviders
         public virtual void Add(T item)
         {
             lock (locker)
-                CollectionData.Add(item);
+                CollectionEntity.Add(item);
         }
 
         public virtual void Remove(T item)
         {
             lock (locker)
-                CollectionData.Remove(item);
+                CollectionEntity.Remove(item);
         }
 
         public virtual void Clear()
         {
             lock (locker)
-                CollectionData.Clear();
+                CollectionEntity.Clear();
         }
 
         public IEnumerator<T> GetEnumerator()
         {   
-            return CollectionData.GetEnumerator();
+            return CollectionEntity.GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return CollectionData.GetEnumerator();
+            return CollectionEntity.GetEnumerator();
         }
 
-        public int Count => CollectionData.Count;
+        public int Count => CollectionEntity.Count;
         #endregion
 
         #region - Procedures -
         #endregion
 
         #region - Properties -
-        public ObservableCollection<T> CollectionData { get; set; }
+        public ObservableCollection<T> CollectionEntity { get; set; }
         #endregion
 
         #region - Attributes -
