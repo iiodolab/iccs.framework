@@ -39,7 +39,10 @@ namespace Iodo.Iccs.Framework.Services
         #region - Procedures -
         protected virtual void RegisterSubscribers()
         {  
-           Subscriber.Subscribe(NameChannel).OnMessage((message) =>
+            Subscriber.Subscribe(NameChannel).OnMessage((message) =>
+                    Channel1EventHandler?.Invoke(this, message));
+
+            Subscriber.Subscribe(NameChannel).OnMessage((message) =>
                     Channel1EventHandler?.Invoke(this, message));
         }
         #endregion

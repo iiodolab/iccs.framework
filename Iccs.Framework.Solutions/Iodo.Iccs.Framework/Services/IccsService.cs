@@ -50,7 +50,7 @@ namespace Iodo.Iccs.Framework.Services
         }
         #endregion
 
-        #region - Overrides -
+        #region - Properties -
         private MessageService MessageService { get; }
         #endregion
     }
