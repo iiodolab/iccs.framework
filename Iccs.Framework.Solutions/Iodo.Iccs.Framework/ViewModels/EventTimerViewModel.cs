@@ -19,7 +19,7 @@ namespace Iodo.Iccs.Framework.ViewModels
         : NotifierPropertyChanged, IEventViewModel
     {
         #region - Ctors - 
-        public EventTimerViewModel(EventModel eventModel)
+        public EventTimerViewModel(IEventModel eventModel)
         {
             EventModel = eventModel;
         }
@@ -93,7 +93,7 @@ namespace Iodo.Iccs.Framework.ViewModels
                 OnPropertyChanged();
             }
         }
-        public EventModel EventModel { get; }        
+        public IEventModel EventModel { get; }
         public CancellationTokenSource CancellationTokenSourceEvent { get; set; }
         #endregion
 

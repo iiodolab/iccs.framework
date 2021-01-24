@@ -18,13 +18,14 @@ namespace Iodo.Iccs.Framework.ViewModels
         : NotifierPropertyChanged, IEventViewModel
     {
         #region - Ctors -
-        public EventViewModel(EventModel eventModel)
+        public EventViewModel(IEventModel eventModel)
         {
             EventModel = eventModel;
         }
         #endregion
 
         #region - Implementations for IEventViewModel -
+        
         public Task Execute(CancellationToken tokenSourceEvent = default)
         {
             throw new NotImplementedException();
@@ -42,11 +43,8 @@ namespace Iodo.Iccs.Framework.ViewModels
             }
         }
 
-        public EventModel EventModel { get; }
+        public IEventModel EventModel { get; set; }
         public CancellationTokenSource CancellationTokenSourceEvent { get; set; }
-        #endregion
-
-        #region - Properties -
         public string TagFault { get; set; }
         #endregion
 
