@@ -1,7 +1,7 @@
 ﻿using Caliburn.Micro;
 
 /******************************************************************************
- * Class EventShellViewModel
+ * Abstract Class EventShellViewModel
  * 
  *                                                   author: Jinwoo Choi, PhD.
  *                                                 organization: Kookmin Univ.
@@ -11,7 +11,7 @@
 
 namespace Iodo.Iccs.Framework.ViewModels
 {
-    public class EventShellViewModel<T1, T2>
+    public abstract class EventShellViewModel<T1, T2>
         : Conductor<IScreen>.Collection.OneActive
         where T1 : IScreen
         where T2 : IScreen
