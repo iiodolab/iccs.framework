@@ -162,6 +162,7 @@
     <Compile Include="Utils\ScreenManager.cs" />
     <Compile Include="Utils\TextToPasswordCharConverter.cs" />
     <Compile Include="ViewModels\DialogViewModel.cs" />
+    <Compile Include="ViewModels\EventShellViewModel.cs" />
     <Compile Include="ViewModels\EventTimerViewModel.cs" />
     <Compile Include="ViewModels\EventViewModel.cs" />
     <Compile Include="ViewModels\IDialogViewModel.cs" />
