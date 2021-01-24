@@ -6,7 +6,7 @@ using System.Windows;
 using System.Windows.Input;
 
 /******************************************************************************
- * Abstract Class EventShellViewModel
+ * Abstract Class ShellViewModel
  * 
  *                                                   author: Jinwoo Choi, PhD.
  *                                                 organization: Kookmin Univ.
@@ -19,6 +19,20 @@ namespace Iodo.Iccs.Framework.ViewModels
     public abstract class ShellViewModel 
         : Conductor<IScreen>
     {
+        #region - Ctors -
+        public ShellViewModel()
+        {   
+            EventAggregator = IoC.Get<IEventAggregator>();
+            EventAggregator.Subscribe(this);
+        }
+        #endregion
+
+        #region - Dtor -
+        ~ShellViewModel()
+        {
+            EventAggregator.Unsubscribe(this);
+        }
+        #endregion
 
         #region - Event Handlers - 
         public void OnKeyDownToggleMaximize(object sender, KeyEventArgs e)
@@ -61,6 +75,10 @@ namespace Iodo.Iccs.Framework.ViewModels
 
             window.SetValue(SourceChord.FluentWPF.AcrylicWindow.AcrylicWindowStyleProperty, styleWindow);        
         }
+        #endregion
+
+        #region - Properties -
+        protected IEventAggregator EventAggregator { get; }
         #endregion
 
         #region - Attributes -
