@@ -42,7 +42,16 @@ namespace Iodo.Iccs.Framework.ViewModels
                 OnPropertyChanged();
             }
         }
-
+        
+        public DateTime DateTime
+        {
+            get => EventModel.DateTime;
+            set
+            {
+                EventModel.DateTime = value;
+                OnPropertyChanged();
+            }
+        }
         public IEventModel EventModel { get; set; }
         public CancellationTokenSource CancellationTokenSourceEvent { get; set; }
         public string TagFault { get; set; }
