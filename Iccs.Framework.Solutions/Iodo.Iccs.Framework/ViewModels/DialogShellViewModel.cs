@@ -22,5 +22,11 @@ namespace Iodo.Iccs.Framework.ViewModels
                 Items.Add(item);
             }
         }
+
+        public void OpenDialogViewModel(object viewModel, IDialogVisitor visitor)
+        {
+            //var visitor = new DialogViewModelVisitor(this, SetupModel);
+            (viewModel as IDialogVisitee).Accept(visitor);
+        }
     }
 }
