@@ -170,6 +170,8 @@
     <Compile Include="ViewModels\EventTimerViewModel.cs" />
     <Compile Include="ViewModels\EventViewModel.cs" />
     <Compile Include="ViewModels\IDialogViewModel.cs" />
+    <Compile Include="ViewModels\IDialogVisitee.cs" />
+    <Compile Include="ViewModels\IDialogVisitor.cs" />
     <Compile Include="ViewModels\IEventViewModel.cs" />
     <Compile Include="ViewModels\IEntityViewModel.cs" />
     <Compile Include="ViewModels\NotifierPropertyChanged.cs" />

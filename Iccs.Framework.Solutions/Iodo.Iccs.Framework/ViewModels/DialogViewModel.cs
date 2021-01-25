@@ -17,6 +17,8 @@ namespace Iodo.Iccs.Framework.ViewModels
 {
     public abstract class DialogViewModel : Screen, IDialogViewModel
     {
+        public abstract void Accept(IDialogVisitor visitor);
+
         protected override void OnViewAttached(object view, object context)
         {
             base.OnViewAttached(view, context);
@@ -44,6 +46,10 @@ namespace Iodo.Iccs.Framework.ViewModels
                 }
             };
         }
+
+        
+
+
 
         #region - Implementations for IMenuPanel - 
         public bool IsVisible

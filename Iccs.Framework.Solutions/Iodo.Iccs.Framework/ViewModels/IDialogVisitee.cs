@@ -1,15 +1,16 @@
 ﻿/******************************************************************************
- * Interface IDialogViewModel
+ * Interface IDialogVisitee
  * 
  *                                                   author: Jinwoo Choi, PhD.
  *                                                 organization: Kookmin Univ.
  *                                                           date: 2020.10.28
  *                                                           
  *****************************************************************************/
+
 namespace Iodo.Iccs.Framework.ViewModels
 {
-    public interface IDialogViewModel : IDialogVisitee
+    public interface IDialogVisitee
     {
-        bool IsVisible { get; set; }
+        void Accept(IDialogVisitor visitor);
     }
 }
