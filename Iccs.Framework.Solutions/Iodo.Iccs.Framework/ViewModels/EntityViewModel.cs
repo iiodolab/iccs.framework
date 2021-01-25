@@ -195,7 +195,6 @@ namespace Iodo.Iccs.Framework.ViewModels
 
         #region - Attributes -
         protected IEntityModel entityModel;
-
         #endregion
     }
 }
