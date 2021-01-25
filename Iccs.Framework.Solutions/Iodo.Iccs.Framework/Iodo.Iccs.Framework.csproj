@@ -163,7 +163,6 @@
     <Compile Include="Utils\InverseBooleanConverter.cs" />
     <Compile Include="Utils\ObservablePropertyCollection.cs" />
     <Compile Include="Utils\ScreenManager.cs" />
-    <Compile Include="Utils\TextToPasswordCharConverter.cs" />
     <Compile Include="ViewModels\CanvasEntityViewModel.cs" />
     <Compile Include="ViewModels\DialogShellViewModel.cs" />
     <Compile Include="ViewModels\DialogViewModel.cs" />
