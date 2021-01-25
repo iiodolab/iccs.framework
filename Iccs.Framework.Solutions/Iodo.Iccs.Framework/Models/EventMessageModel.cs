@@ -9,7 +9,7 @@
 
 namespace Iodo.Iccs.Framework.Models
 {
-    public  class EventMessageModel<T> : IEventMessageModel<T>
+    public abstract class EventMessageModel<T> : IEventMessageModel<T>
     {
         public T Value
         {

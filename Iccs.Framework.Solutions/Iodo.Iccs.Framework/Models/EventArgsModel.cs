@@ -11,7 +11,7 @@
 
 namespace Iodo.Iccs.Framework.Models
 {
-    public class EventArgsModel<T> : EventArgs
+    public sealed class EventArgsModel<T> : EventArgs
     {
         #region - Abstracts -
         public T Value { get; set; }

@@ -16,7 +16,7 @@ using System.Windows.Data;
 namespace Iodo.Iccs.Framework.DataProviders
 {
     [DebuggerDisplay("Count = {CollectionEntity.Count}")]
-    public class EntityCollectionProvider<T> : ICollector<T>
+    public abstract class EntityCollectionProvider<T> : ICollector<T>
     {
         #region - Ctors -
         public EntityCollectionProvider(IEnumerable<T> collection)

@@ -9,7 +9,7 @@
 
 namespace Iodo.Iccs.Framework.Models
 {
-    public class SelectableItemModel
+    public sealed class SelectableItemModel
     {
         #region - Properties -
         public string Name

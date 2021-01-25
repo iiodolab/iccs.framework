@@ -26,8 +26,11 @@ namespace Iodo.Iccs.Framework.ViewModels
         }
         #endregion
 
-        #region - Abstracts -
-        public abstract void Dispose();
+
+        #region - Implementations for IDisposable -
+        public void Dispose()
+        {   
+        }
         #endregion 
 
         #region - Properties -
@@ -192,6 +195,7 @@ namespace Iodo.Iccs.Framework.ViewModels
 
         #region - Attributes -
         protected IEntityModel entityModel;
+
         #endregion
     }
 }
