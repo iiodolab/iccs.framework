@@ -24,8 +24,7 @@ namespace Iodo.Iccs.Framework.ViewModels
         }
 
         public void OpenDialogViewModel(object viewModel, IDialogVisitor visitor)
-        {
-            //var visitor = new DialogViewModelVisitor(this, SetupModel);
+        {   
             (viewModel as IDialogVisitee).Accept(visitor);
         }
     }
