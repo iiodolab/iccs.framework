@@ -10,20 +10,21 @@
  *****************************************************************************/
 
 namespace Iodo.Iccs.Framework.ViewModels
-{
+{   
     public abstract class CanvasEntityViewModel<T>
         : Screen
     {
         #region - Ctors
-        public CanvasEntityViewModel(T symbolProvider, bool visibility = true)
+        public CanvasEntityViewModel(T entityProvider, bool visibility = true)
         {
-            SymbolProvider = symbolProvider;
+            EntityProvider = entityProvider;
             Visibility = visibility;
         }
         #endregion
 
         #region - Properties -
-        public T SymbolProvider { get; }
+        public T EntityProvider { get; }
+
         public bool Visibility {
             get => visibility;
             set
