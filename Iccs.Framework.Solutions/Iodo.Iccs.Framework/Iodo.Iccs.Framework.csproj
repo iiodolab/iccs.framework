@@ -141,6 +141,7 @@
     <Compile Include="DataProviders\EntityViewModelFactory.cs" />
     <Compile Include="IBootstrapper.cs" />
     <Compile Include="Models\DeviceTypeModel.cs" />
+    <Compile Include="Models\EntityShapeTypeModel.cs" />
     <Compile Include="Models\EventArgsModel.cs" />
     <Compile Include="Models\EventMessageModel.cs" />
     <Compile Include="Models\EventModel.cs" />

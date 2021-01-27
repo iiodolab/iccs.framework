@@ -26,7 +26,6 @@ namespace Iodo.Iccs.Framework.ViewModels
         }
         #endregion
 
-
         #region - Implementations for IDisposable -
         public void Dispose()
         {   
