@@ -1,9 +1,7 @@
-﻿using Iodo.Iccs.Framework.Services;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using Newtonsoft.Json.Linq;
 
 /******************************************************************************
- * Interface IDataProvider
+ * Interface IIccsService
  * 
  *                                                   author: Jinwoo Choi, PhD.
  *                                                 organization: Kookmin Univ.
@@ -11,9 +9,14 @@ using System.Threading.Tasks;
  *                                                           
  *****************************************************************************/
 
-namespace Iodo.Iccs.Framework.DataProviders
+namespace Iodo.Iccs.Framework.Services
 {
-    public interface IDataProvide
+    public interface IIccsService 
+        : IService
     {
+        void BuildLookupTabel();
+        void ProcessDetection(JToken target);
+        void ProcessFault(JToken target);
+        void ProcessConnection(JToken target);
     }
 }

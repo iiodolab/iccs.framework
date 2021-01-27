@@ -16,7 +16,8 @@ using System.Threading.Tasks;
  *****************************************************************************/
 namespace Iodo.Iccs.Framework.Services
 {
-    public abstract class IccsService : TaskService, IIccsContoller
+    public abstract class IccsService 
+        : TaskService, IIccsService
     {
         #region - Ctors -
         public IccsService(MessageService messageService)

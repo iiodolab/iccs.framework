@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 namespace Iodo.Iccs.Framework.Services
 {
     public abstract class MessageService 
-        : TaskService
+        : TaskService, IMessageService
     {
         #region - Ctors -
         public MessageService(ISubscriber subscriber, string nameChannel)

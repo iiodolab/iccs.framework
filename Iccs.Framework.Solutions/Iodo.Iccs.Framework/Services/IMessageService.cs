@@ -1,7 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
-
-/******************************************************************************
- * Interface IIccsContoller
+﻿/******************************************************************************
+ * Interface IMessageService
  * 
  *                                                   author: Jinwoo Choi, PhD.
  *                                                 organization: Kookmin Univ.
@@ -11,11 +9,8 @@
 
 namespace Iodo.Iccs.Framework.Services
 {
-    internal interface IIccsContoller
+    public interface IMessageService
+        : IService
     {
-        void BuildLookupTabel();
-        void ProcessDetection(JToken target);
-        void ProcessFault(JToken target);
-        void ProcessConnection(JToken target);
     }
 }

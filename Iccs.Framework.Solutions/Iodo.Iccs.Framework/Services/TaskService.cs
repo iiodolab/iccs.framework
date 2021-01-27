@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace Iodo.Iccs.Framework.Services
 {
-    public abstract class TaskService : IService
+    public abstract class TaskService
     {
         #region - Abstracts -
         protected abstract Task RunTask(CancellationToken token = default);
