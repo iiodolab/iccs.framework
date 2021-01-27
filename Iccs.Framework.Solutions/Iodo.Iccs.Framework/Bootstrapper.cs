@@ -24,7 +24,7 @@ namespace Iodo.Iccs.Framework
         public Bootstrapper()
         {
             ListService = new List<IService>();
-            CancellationTokenSourceApp = new CancellationTokenSource();
+            CancellationTokenSourceHandler = new CancellationTokenSource();
         }
         #endregion
 
@@ -38,7 +38,7 @@ namespace Iodo.Iccs.Framework
         {
             try
             {
-                var token = CancellationTokenSourceApp.Token;
+                var token = CancellationTokenSourceHandler.Token;
                 StartUp();
                 ListService.ForEach((service) => service.ExecuteAsync(token));
                 DisplayRootViewFor<T>();
@@ -69,7 +69,7 @@ namespace Iodo.Iccs.Framework
         #endregion
 
         #region - Properties - 
-        protected CancellationTokenSource CancellationTokenSourceApp { get; }
+        protected CancellationTokenSource CancellationTokenSourceHandler { get; }
         #endregion
     }
 }
