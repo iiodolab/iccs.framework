@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Iodo.Iccs.Framework.DataProviders
 {
-    public interface IDataProvider
+    public interface IDataProvide
     {
     }
 }
