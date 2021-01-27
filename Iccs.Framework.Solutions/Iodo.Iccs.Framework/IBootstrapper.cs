@@ -11,7 +11,7 @@ namespace Iodo.Iccs.Framework
 {
     public interface IBootstrapper
     {
-        void StartUp();
+        void Start();
         void Stop();
     }
 }

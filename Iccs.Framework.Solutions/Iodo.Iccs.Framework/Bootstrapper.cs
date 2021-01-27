@@ -2,8 +2,11 @@
 using Caliburn.Micro;
 using Caliburn.Micro.Autofac;
 using Iodo.Iccs.Framework.Services;
+using StackExchange.Redis;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Diagnostics;
 using System.Threading;
 using System.Windows;
 
@@ -22,21 +25,24 @@ namespace Iodo.Iccs.Framework
     {
         #region - Ctors -
         public Bootstrapper()
-        {
-            ListService = new List<IService>();
+        {   
             CancellationTokenSourceHandler = new CancellationTokenSource();
         }
         #endregion
 
         #region - Abstracts -
-        public virtual void StartUp()
+        public void Start()
         {
             var token = CancellationTokenSourceHandler.Token;
-            ListService.ForEach((service) => service.ExecuteAsync(token));
+            foreach (var service in Container.Resolve<IEnumerable<IService>>())
+            {
+                service.ExecuteAsync(token);
+            }
         }
         public virtual void Stop()
         {
-            throw new NotImplementedException();
+            CancellationTokenSourceHandler.Cancel();
+            CancellationTokenSourceHandler.Dispose();
         }
         #endregion
 
@@ -44,14 +50,41 @@ namespace Iodo.Iccs.Framework
         protected override void OnStartup(object sender, StartupEventArgs e)
         {
             try
-            {   
-                StartUp();
+            {
+                Start();
                 DisplayRootViewFor<T>();
             }
             catch(Exception ex)
             {
                 throw ex;
             }
+        }
+
+        protected override void OnExit(object sender, EventArgs e)
+        {
+            var connection = Container.Resolve<IDbConnection>();
+            if (connection.State == ConnectionState.Open)
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+
+            try
+            {
+                var subconn = Container.Resolve<ISubscriber>();
+                if (subconn.IsConnected())
+                {
+                    subconn.Multiplexer.Close();
+                    subconn.Multiplexer.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+
+            Stop();
+            base.OnExit(sender, e);
         }
 
         protected override void ConfigureContainer(ContainerBuilder builder)
@@ -63,14 +96,9 @@ namespace Iodo.Iccs.Framework
         #endregion
 
         #region - Procedures -
-        public void AddService(IService service)
-        {
-            ListService.Add(service);
-        }
         #endregion
 
         #region - Properties -
-        private List<IService> ListService { get; }
         #endregion
 
         #region - Properties - 

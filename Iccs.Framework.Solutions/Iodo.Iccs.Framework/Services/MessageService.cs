@@ -25,7 +25,7 @@ namespace Iodo.Iccs.Framework.Services
         }
         #endregion
 
-        #region - Implements asbtracts -
+        #region - Implements abstracts -
         protected override async Task RunTask(CancellationToken token = default)
         {
             await Task.Run(delegate { RegisterSubscribers(); }, token);
@@ -44,14 +44,20 @@ namespace Iodo.Iccs.Framework.Services
         }
         #endregion
 
+        #region - Delegators for EventHandlers -
+        public event EventHandler<ChannelMessage> Channel1EventHandler;
+        public event EventHandler<ChannelMessage> Channel2EventHandler;
+        public event EventHandler<ChannelMessage> Channel3EventHandler;
+        public event EventHandler<ChannelMessage> Channel4EventHandler;
+        public event EventHandler<ChannelMessage> Channel5EventHandler;
+        public event EventHandler<ChannelMessage> Channel6EventHandler;
+        #endregion
+
         #region - Properties -
         protected ISubscriber Subscriber { get; }
         private string NameChannel { get; }
         #endregion
 
-        #region - Delegators for EventHandlers -
-        public event EventHandler<ChannelMessage> Channel1EventHandler;
-        public event EventHandler<ChannelMessage> Channel2EventHandler;
-        #endregion
+        
     }
 }

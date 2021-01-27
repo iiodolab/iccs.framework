@@ -20,7 +20,11 @@ namespace Iodo.Iccs.Framework.Services
         : TaskService, IIccsService
     {
         #region - Ctors -
-        public IccsService(MessageService messageService)
+        public IccsService()
+        {
+        }
+
+        public IccsService(IMessageService messageService)
         {
             MessageService = messageService;
         }
@@ -94,7 +98,7 @@ namespace Iodo.Iccs.Framework.Services
         #endregion
 
         #region - Properties -
-        private MessageService MessageService { get; }
+        private IMessageService MessageService { get; }
         #endregion
     }
 }
