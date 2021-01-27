@@ -29,18 +29,23 @@ namespace Iodo.Iccs.Framework
         #endregion
 
         #region - Abstracts -
-        public abstract void StartUp();
-        public abstract void Stop();
+        public virtual void StartUp()
+        {
+            var token = CancellationTokenSourceHandler.Token;
+            ListService.ForEach((service) => service.ExecuteAsync(token));
+        }
+        public virtual void Stop()
+        {
+            throw new NotImplementedException();
+        }
         #endregion
 
         #region - Overrides -
         protected override void OnStartup(object sender, StartupEventArgs e)
         {
             try
-            {
-                var token = CancellationTokenSourceHandler.Token;
+            {   
                 StartUp();
-                ListService.ForEach((service) => service.ExecuteAsync(token));
                 DisplayRootViewFor<T>();
             }
             catch(Exception ex)
@@ -58,7 +63,7 @@ namespace Iodo.Iccs.Framework
         #endregion
 
         #region - Procedures -
-        public void AddTask(IService service)
+        public void AddService(IService service)
         {
             ListService.Add(service);
         }
