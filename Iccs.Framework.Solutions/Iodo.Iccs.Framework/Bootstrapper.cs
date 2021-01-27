@@ -4,12 +4,11 @@ using Caliburn.Micro.Autofac;
 using Iodo.Iccs.Framework.Services;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Threading;
 using System.Windows;
 
 /******************************************************************************
- * Class Bootstrapper
+ * Abstract Class Bootstrapper
  * 
  *                                                   author: Jinwoo Choi, PhD.
  *                                                 organization: Kookmin Univ.
@@ -19,7 +18,7 @@ using System.Windows;
 
 namespace Iodo.Iccs.Framework
 {
-    public abstract class Bootstrapper<T> : AutofacBootstrapper<T>
+    public abstract class Bootstrapper<T> : AutofacBootstrapper<T>, IBootstrapper
     {
         #region - Ctors -
         public Bootstrapper()
@@ -30,9 +29,8 @@ namespace Iodo.Iccs.Framework
         #endregion
 
         #region - Abstracts -
-        protected abstract void StartUp();
-        protected abstract void Stop();
-
+        public abstract void StartUp();
+        public abstract void Stop();
         #endregion
 
         #region - Overrides -
@@ -43,7 +41,6 @@ namespace Iodo.Iccs.Framework
                 var token = CancellationTokenSourceApp.Token;
                 StartUp();
                 ListService.ForEach((service) => service.ExecuteAsync(token));
-
                 DisplayRootViewFor<T>();
             }
             catch(Exception ex)
