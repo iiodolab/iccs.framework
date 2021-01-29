@@ -15,11 +15,11 @@ namespace Iodo.Iccs.Framework.ViewModels
         Iodo.Iccs.Framework.DataProviders
         .EntityCollectionProvider<Iodo.Iccs.Framework.ViewModels.IEntityViewModel>;
 
-    public abstract class CanvasEntityViewModel
+    public abstract class CanvasEntityViewModel<T>
         : Screen
     {
         #region - Ctors
-        public CanvasEntityViewModel(ECProvider entityProvider, bool visibility = true)
+        public CanvasEntityViewModel(T entityProvider, bool visibility = true)
         {
             EntityProvider = entityProvider;
             Visibility = visibility;
@@ -27,7 +27,7 @@ namespace Iodo.Iccs.Framework.ViewModels
         #endregion
 
         #region - Properties -
-        public ECProvider EntityProvider  { get; }
+        public T EntityProvider  { get; }
 
         public bool Visibility {
             get => visibility;

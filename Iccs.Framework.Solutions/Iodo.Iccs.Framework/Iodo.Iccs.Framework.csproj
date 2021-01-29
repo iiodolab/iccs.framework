@@ -167,6 +167,12 @@
     <Compile Include="Utils\ObservablePropertyCollection.cs" />
     <Compile Include="Utils\ScreenManager.cs" />
     <Compile Include="ViewModels\CanvasEntityViewModel.cs" />
+    <Compile Include="ViewModels\Canvases\CanvasCameraViewModel.cs" />
+    <Compile Include="ViewModels\Canvases\CanvasControllerViewModel.cs" />
+    <Compile Include="ViewModels\Canvases\CanvasGroupDetectViewModel.cs" />
+    <Compile Include="ViewModels\Canvases\CanvasGroupFaultViewModel.cs" />
+    <Compile Include="ViewModels\Canvases\CanvasGroupLabelViewModel.cs" />
+    <Compile Include="ViewModels\Canvases\CanvasSensorViewModel.cs" />
     <Compile Include="ViewModels\DialogShellViewModel.cs" />
     <Compile Include="ViewModels\DialogViewModel.cs" />
     <Compile Include="ViewModels\EventShellViewModel.cs" />
