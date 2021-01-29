@@ -1,5 +1,4 @@
-﻿using Iodo.Iccs.Framework.ViewModels;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;

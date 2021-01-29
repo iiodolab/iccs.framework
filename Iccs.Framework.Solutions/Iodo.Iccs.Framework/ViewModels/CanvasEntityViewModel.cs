@@ -11,10 +11,6 @@
 
 namespace Iodo.Iccs.Framework.ViewModels
 {
-    using ECProvider = 
-        Iodo.Iccs.Framework.DataProviders
-        .EntityCollectionProvider<Iodo.Iccs.Framework.ViewModels.IEntityViewModel>;
-
     public abstract class CanvasEntityViewModel<T>
         : Screen
     {
