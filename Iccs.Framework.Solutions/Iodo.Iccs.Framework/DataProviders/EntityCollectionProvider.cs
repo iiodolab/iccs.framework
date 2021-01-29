@@ -19,7 +19,6 @@ namespace Iodo.Iccs.Framework.DataProviders
     [DebuggerDisplay("Count = {CollectionEntity.Count}")]
     public abstract class EntityCollectionProvider<T>        
         : ICollector<T>
-        where T : IEntityViewModel
     {
         #region - Ctors -
         public EntityCollectionProvider(IEnumerable<T> collection)
