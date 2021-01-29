@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Iodo.Iccs.Framework.ViewModels;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -16,7 +17,9 @@ using System.Windows.Data;
 namespace Iodo.Iccs.Framework.DataProviders
 {
     [DebuggerDisplay("Count = {CollectionEntity.Count}")]
-    public abstract class EntityCollectionProvider<T> : ICollector<T>
+    public abstract class EntityCollectionProvider<T>        
+        : ICollector<T>
+        where T : IEntityViewModel
     {
         #region - Ctors -
         public EntityCollectionProvider(IEnumerable<T> collection)
