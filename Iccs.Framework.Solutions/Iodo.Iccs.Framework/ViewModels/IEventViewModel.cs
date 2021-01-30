@@ -16,7 +16,7 @@ namespace Iodo.Iccs.Framework.ViewModels
     public interface IEventViewModel        
     {
         #region - Interfaces -
-        Task Execute(CancellationToken tokenSourceEvent);
+        Task ExecuteAsync(CancellationToken tokenSourceEvent);
         IEventModel EventModel { get; }
         CancellationTokenSource CancellationTokenSourceEvent { get; set; }
         #endregion

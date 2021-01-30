@@ -1,6 +1,7 @@
 ﻿using Caliburn.Micro;
 using Iodo.Iccs.Framework.Models;
 using System;
+using System.Threading;
 
 /******************************************************************************
  * Abstract Class EntityViewModel
@@ -13,14 +14,21 @@ using System;
 
 namespace Iodo.Iccs.Framework.ViewModels
 {
-    public abstract class EntityViewModel : Screen, IEntityViewModel, IDisposable
+    public abstract class EntityViewModel 
+        : Screen, IEntityViewModel, IDisposable
     {
         #region - Ctors -
         public EntityViewModel()
         {
         }
 
+        public EntityViewModel(SemaphoreSlim semaphoreSlim)
+        {
+            EntityViewModel.semaphoreSlim = semaphoreSlim;
+        }
+
         public EntityViewModel(IEntityModel entityModel)
+            : this(new SemaphoreSlim(1, 1))
         {
             this.entityModel = entityModel;
         }
@@ -194,6 +202,7 @@ namespace Iodo.Iccs.Framework.ViewModels
 
         #region - Attributes -
         protected IEntityModel entityModel;
+        protected static SemaphoreSlim semaphoreSlim;
         #endregion
     }
 }

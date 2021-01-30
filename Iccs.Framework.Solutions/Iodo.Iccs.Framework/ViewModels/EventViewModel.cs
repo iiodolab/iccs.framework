@@ -25,7 +25,7 @@ namespace Iodo.Iccs.Framework.ViewModels
         #endregion
 
         #region - Implementations for IEventViewModel -        
-        public Task Execute(CancellationToken tokenSourceEvent = default)
+        public Task ExecuteAsync(CancellationToken tokenSourceEvent = default)
         {
             throw new NotImplementedException();
         }

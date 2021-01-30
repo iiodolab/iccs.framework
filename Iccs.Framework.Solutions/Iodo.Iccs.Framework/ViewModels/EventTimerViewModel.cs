@@ -30,28 +30,21 @@ namespace Iodo.Iccs.Framework.ViewModels
         #endregion
 
         #region - Implemenations for IEventViewModel - 
-        public async Task Execute(CancellationToken tokenSourceEvent = default)
+        public async Task ExecuteAsync(CancellationToken tokenSourceEvent = default)
         {
             try
             {
-                await Task.Run(async () =>
-                {
-                    if (tokenSourceEvent.IsCancellationRequested)
-                        tokenSourceEvent.ThrowIfCancellationRequested();
+                if (tokenSourceEvent.IsCancellationRequested)
+                    tokenSourceEvent.ThrowIfCancellationRequested();
 
-                    TimeSpan ts = (TimeDiscardSec < 0) ?
-                                    Timeout.InfiniteTimeSpan : TimeSpan.FromSeconds(TimeDiscardSec);
-                    await Task.Delay(ts, tokenSourceEvent);
-
-                    if (tokenSourceEvent.IsCancellationRequested)
-                        tokenSourceEvent.ThrowIfCancellationRequested();
-
-                    await TaskFinal();
-                }, tokenSourceEvent);
+                TimeSpan ts = (TimeDiscardSec < 0) ?
+                            Timeout.InfiniteTimeSpan : TimeSpan.FromSeconds(TimeDiscardSec);
+                await Task.Delay(ts, tokenSourceEvent);
+                await TaskFinal();
             }
             catch (OperationCanceledException ex)
             {
-                Debug.WriteLine($"TimerTask: {ex.Message}");
+                Debug.WriteLine($"TimerTask Discard: {ex.Message}");
             }
             finally
             {
@@ -65,7 +58,7 @@ namespace Iodo.Iccs.Framework.ViewModels
         {
             TimeDiscardSec = timeDiscardSec;
             CancellationTokenSourceEvent = tokenSourceEvent;
-            await Execute(CancellationTokenSourceEvent.Token);
+            await ExecuteAsync(CancellationTokenSourceEvent.Token);
         }
 
         public void Cancel()
